@@ -75,9 +75,3 @@ GET /health
 ```
 
 Returns the service status and version information.
-
-## Security
-
-- Rate limiting: 100 requests per 15 minutes per IP
-- Security headers enabled via Helmet
-- Input validation and sanitization
