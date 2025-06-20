@@ -15,26 +15,25 @@ export class CalculatorService {
     }
 
     const invalidNumbers: string[] = [];
-    const numbers = operands.split(',').map((num) => {
-      const trimmed = num.trim();
-      if (trimmed === '') {
-        invalidNumbers.push('');
-        return NaN;
-      }
-      const parsed = Number(trimmed);
-      // Check for NaN, Infinity, or -Infinity
-      if (isNaN(parsed)) {
-        invalidNumbers.push(trimmed);
-      } else if (parsed === Infinity) {
-        invalidNumbers.push('Infinity');
-      } else if (parsed === -Infinity) {
-        invalidNumbers.push('-Infinity');
-      }
-      return parsed;
-    });
+    const numbers = operands
+      .split(',')
+      .map((num) => {
+        const trimmed = num.trim();
+        if (trimmed === '') {
+          // Skip empty strings (from trailing commas) instead of treating as invalid
+          return null;
+        }
+        const parsed = Number(trimmed);
+        // Only check for NaN as invalid
+        if (isNaN(parsed)) {
+          invalidNumbers.push(trimmed);
+        }
+        return parsed;
+      })
+      .filter((num) => num !== null) as number[]; // Filter out null values
 
     if (invalidNumbers.length > 0) {
-      throw new Error(`Invalid characters: ${invalidNumbers.join(', ')}`);
+      throw new Error(`Invalid numbers: ${invalidNumbers.join(', ')}`);
     }
 
     let sum = 0;

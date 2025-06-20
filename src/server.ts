@@ -8,9 +8,6 @@ import { config } from './config';
 const app = express();
 const calculator = new CalculatorService();
 
-
-
-
 // API Documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
