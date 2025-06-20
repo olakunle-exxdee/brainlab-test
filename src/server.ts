@@ -32,7 +32,7 @@ app.get('/calculator/add', (req: Request, res: Response) => {
     const sum = calculator.add(operands);
     logger.info(`Calculation successful. Result: ${sum}`);
 
-    res.json({ sum });
+    res.json({ sum: Number(sum.toFixed(2)) });
   } catch (error) {
     logger.error(`Error processing request: ${(error as Error).message}`);
     res.status(400).json({ error: (error as Error).message });
