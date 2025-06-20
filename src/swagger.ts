@@ -39,6 +39,9 @@ export const swaggerDocument = {
                     },
                   },
                 },
+                example: {
+                  sum: 6,
+                },
               },
             },
           },
@@ -53,6 +56,9 @@ export const swaggerDocument = {
                       type: 'string',
                     },
                   },
+                },
+                example: {
+                  error: 'Invalid numbers: foo',
                 },
               },
             },
