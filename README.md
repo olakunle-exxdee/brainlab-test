@@ -6,11 +6,6 @@ A TypeScript-based REST service that performs addition on a given input of numbe
 
 - REST API for addition operations
 - API Documentation (Swagger/OpenAPI)
-- Security headers (Helmet)
-- Rate limiting
-- Health check endpoint
-- Comprehensive logging
-- Configuration management
 
 ## Prerequisites
 
